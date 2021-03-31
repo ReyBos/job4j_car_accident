@@ -38,7 +38,7 @@
                             <td>${entry.value.text}</td>
                             <td>${entry.value.address}</td>
                             <td class="right-align">
-                                <a href='<c:url value="/edit?id=${entry.value.id}"/>'>
+                                <a href='<c:url value="/update?id=${entry.value.id}"/>'>
                                     <i class="material-icons">edit</i>
                                 </a>
                             </td>

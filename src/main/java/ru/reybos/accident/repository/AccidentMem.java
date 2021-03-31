@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 import ru.reybos.accident.model.Accident;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -13,7 +14,9 @@ public class AccidentMem {
     private AtomicInteger accidentsId = new AtomicInteger(1);
 
     public void save(Accident accident) {
-        accident.setId(accidentsId.getAndIncrement());
+        if (accident.getId() == 0) {
+            accident.setId(accidentsId.getAndIncrement());
+        }
         accidents.put(accident.getId(), accident);
     }
 
@@ -21,7 +24,7 @@ public class AccidentMem {
         return accidents;
     }
 
-    public void update(int id, Accident accident) {
-        accidents.put(id, accident);
+    public Optional<Accident> findById(int id) {
+        return Optional.ofNullable(accidents.get(id));
     }
 }

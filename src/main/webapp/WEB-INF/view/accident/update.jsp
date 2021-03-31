@@ -21,20 +21,20 @@
     <div class="col s6 offset-s3">
         <div class="card horizontal">
             <div class="card-stacked row">
-                <form class="col" action="<c:url value='/update'/>" method="post">
+                <form class="col" action="<c:url value='/save?id=${accident.id}'/>" method="post">
                     <div class="card-content">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="name" type="text" name="name" class="validate" required>
-                                <label class="" for="name">Нарушение</label>
+                                <input id="name" type="text" name="name" class="validate" required value="${accident.name}">
+                                <label class="active" for="name">Нарушение</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="text" type="text" name="text" class="validate" required>
-                                <label class="" for="text">Описание</label>
+                                <input id="text" type="text" name="text" class="validate" required value="${accident.text}">
+                                <label class="active" for="text">Описание</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="address" type="text" name="address" class="validate" required>
-                                <label class="" for="address">Адрес</label>
+                                <input id="address" type="text" name="address" class="validate" required value="${accident.address}">
+                                <label class="active" for="address">Адрес</label>
                             </div>
                         </div>
                     </div>
