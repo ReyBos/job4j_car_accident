@@ -16,7 +16,7 @@
     <c:import url="_menu.jsp"/>
     <div class="container row">
         <div class="row valign-wrapper">
-            <h5 class="col s12 center-align">Правонарушения</h5>
+            <h5 class="col s12 center-align">Инциденты</h5>
         </div>
         <div class="card">
             <div class="card-content">
@@ -27,6 +27,7 @@
                         <th>Нарушение</th>
                         <th>Описание</th>
                         <th>Адрес</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,6 +37,11 @@
                             <td>${entry.value.name}</td>
                             <td>${entry.value.text}</td>
                             <td>${entry.value.address}</td>
+                            <td class="right-align">
+                                <a href='<c:url value="/edit?id=${entry.value.id}"/>'>
+                                    <i class="material-icons">edit</i>
+                                </a>
+                            </td>
                         </tr>
                     </c:forEach>
                     </tbody>

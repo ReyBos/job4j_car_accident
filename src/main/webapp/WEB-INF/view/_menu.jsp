@@ -3,5 +3,13 @@
 <nav>
     <div class="nav-wrapper container">
         <a class="brand-logo">Accident</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+                <a href='<c:url value="/" />'>Главная</a>
+            </li>
+            <li>
+                <a href='<c:url value="/create" />'>Добавить инцидент</a>
+            </li>
+        </ul>
     </div>
 </nav>
