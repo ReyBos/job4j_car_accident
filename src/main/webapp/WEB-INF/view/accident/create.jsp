@@ -18,31 +18,39 @@
     <div class="row valign-wrapper">
         <h5 class="col s12 center-align">Добавить инцидент</h5>
     </div>
-    <div class="col s6 offset-s3">
+    <div class="col s10 offset-s1">
         <div class="card horizontal">
             <div class="card-stacked row">
                 <form class="col" action="<c:url value='/save'/>" method="post">
                     <div class="card-content">
                         <div class="row">
-                            <div class="input-field col s12">
+                            <div class="input-field col s6">
                                 <input id="name" type="text" name="name" class="validate" required>
                                 <label class="" for="name">Нарушение</label>
                             </div>
-                            <div class="input-field col s12">
+                            <div class="input-field col s6">
                                 <input id="text" type="text" name="text" class="validate" required>
                                 <label class="" for="text">Описание</label>
                             </div>
-                            <div class="input-field col s12">
+                            <div class="input-field col s6">
                                 <input id="address" type="text" name="address" class="validate" required>
                                 <label class="" for="address">Адрес</label>
                             </div>
-                            <div class="input-field col s12">
+                            <div class="input-field col s6">
                                 <select name="type.id" id="type_id">
                                     <c:forEach var="type" items="${types}" >
                                         <option value="${type.id}">${type.name}</option>
                                     </c:forEach>
                                 </select>
                                 <label class="" for="type_id">Тип</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <select name="rIds" multiple id="rIds">
+                                    <c:forEach var="rule" items="${rules}" >
+                                        <option value="${rule.id}">${rule.name}</option>
+                                    </c:forEach>
+                                </select>
+                                <label class="" for="rIds">Статьи</label>
                             </div>
                         </div>
                     </div>

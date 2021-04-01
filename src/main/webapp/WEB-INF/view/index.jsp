@@ -26,6 +26,7 @@
                         <th>&nbsp;#&nbsp;</th>
                         <th>Нарушение</th>
                         <th>Тип</th>
+                        <th>Статья</th>
                         <th>Описание</th>
                         <th>Адрес</th>
                         <th></th>
@@ -37,6 +38,11 @@
                             <td>${entry.key}</td>
                             <td>${entry.value.name}</td>
                             <td>${entry.value.type.name}</td>
+                            <td>
+                                <c:forEach items="${entry.value.rules}" var="rule">
+                                    ${rule.name}
+                                </c:forEach>
+                            </td>
                             <td>${entry.value.text}</td>
                             <td>${entry.value.address}</td>
                             <td class="right-align">

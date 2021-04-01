@@ -1,6 +1,8 @@
 package ru.reybos.accident.model;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class Accident {
     private int id;
@@ -8,6 +10,15 @@ public class Accident {
     private String text;
     private String address;
     private AccidentType type;
+    private Set<Rule> rules = new HashSet<>();
+
+    public void addRule(Rule rule) {
+        rules.add(rule);
+    }
+
+    public boolean hasRule(Rule rule) {
+        return rules.contains(rule);
+    }
 
     public int getId() {
         return id;
@@ -47,6 +58,10 @@ public class Accident {
 
     public void setType(AccidentType type) {
         this.type = type;
+    }
+
+    public Set<Rule> getRules() {
+        return rules;
     }
 
     @Override
