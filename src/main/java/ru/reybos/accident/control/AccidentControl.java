@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.reybos.accident.model.Accident;
+import ru.reybos.accident.model.AccidentType;
 import ru.reybos.accident.repository.AccidentMem;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @Controller
@@ -20,7 +22,9 @@ public class AccidentControl {
     }
 
     @GetMapping("/create")
-    public String create() {
+    public String create(Model model) {
+        Collection<AccidentType> types = store.findAllAccidentType();
+        model.addAttribute("types", types);
         return "accident/create";
     }
 
@@ -36,6 +40,8 @@ public class AccidentControl {
         if (optionalAccident.isEmpty()) {
             throw new IllegalArgumentException("Инцидент не найден");
         }
+        Collection<AccidentType> types = store.findAllAccidentType();
+        model.addAttribute("types", types);
         model.addAttribute("accident", optionalAccident.get());
         return "accident/update";
     }

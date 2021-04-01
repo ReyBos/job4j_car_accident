@@ -25,6 +25,7 @@
                     <tr>
                         <th>&nbsp;#&nbsp;</th>
                         <th>Нарушение</th>
+                        <th>Тип</th>
                         <th>Описание</th>
                         <th>Адрес</th>
                         <th></th>
@@ -35,6 +36,7 @@
                         <tr>
                             <td>${entry.key}</td>
                             <td>${entry.value.name}</td>
+                            <td>${entry.value.type.name}</td>
                             <td>${entry.value.text}</td>
                             <td>${entry.value.address}</td>
                             <td class="right-align">

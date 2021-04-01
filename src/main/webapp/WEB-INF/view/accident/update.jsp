@@ -36,6 +36,14 @@
                                 <input id="address" type="text" name="address" class="validate" required value="${accident.address}">
                                 <label class="active" for="address">Адрес</label>
                             </div>
+                            <div class="input-field col s12">
+                                <select name="type.id" id="type_id">
+                                    <c:forEach var="type" items="${types}" >
+                                        <option value="${type.id}" <c:if test="${accident.type.id == type.id}">selected</c:if>>${type.name}</option>
+                                    </c:forEach>
+                                </select>
+                                <label class="" for="type_id">Тип</label>
+                            </div>
                         </div>
                     </div>
                     <div class="card-action center-align">
@@ -48,5 +56,12 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('select').formSelect();
+    });
+</script>
 </body>
 </html>
