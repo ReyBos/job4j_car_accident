@@ -5,7 +5,8 @@ import ru.reybos.accident.model.Accident;
 import ru.reybos.accident.model.AccidentType;
 import ru.reybos.accident.model.Rule;
 
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
@@ -36,23 +37,19 @@ public class AccidentMem {
         accidents.put(accident.getId(), accident);
     }
 
-    public Map<Integer, Accident> findAllAccident() {
-        return accidents;
+    public List<Accident> findAllAccident() {
+        return new ArrayList<>(accidents.values());
     }
 
     public Optional<Accident> findById(int id) {
         return Optional.ofNullable(accidents.get(id));
     }
 
-    public Collection<AccidentType> findAllAccidentType() {
-        return types.values();
+    public List<AccidentType> findAllAccidentType() {
+        return new ArrayList<>(types.values());
     }
 
-    public Map<Integer, Rule> findAllRuleWithId() {
-        return rules;
-    }
-
-    public Collection<Rule> findAllRule() {
-        return rules.values();
+    public List<Rule> findAllRule() {
+        return new ArrayList<>(rules.values());
     }
 }

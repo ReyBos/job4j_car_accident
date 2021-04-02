@@ -33,20 +33,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${accidents}" var="entry">
+                    <c:forEach items="${accidents}" var="accident">
                         <tr>
-                            <td>${entry.key}</td>
-                            <td>${entry.value.name}</td>
-                            <td>${entry.value.type.name}</td>
+                            <td>${accident.id}</td>
+                            <td>${accident.name}</td>
+                            <td>${accident.type.name}</td>
                             <td>
-                                <c:forEach items="${entry.value.rules}" var="rule">
+                                <c:forEach items="${accident.rules}" var="rule">
                                     ${rule.name}
                                 </c:forEach>
                             </td>
-                            <td>${entry.value.text}</td>
-                            <td>${entry.value.address}</td>
+                            <td>${accident.text}</td>
+                            <td>${accident.address}</td>
                             <td class="right-align">
-                                <a href='<c:url value="/update?id=${entry.value.id}"/>'>
+                                <a href='<c:url value="/update?id=${accident.id}"/>'>
                                     <i class="material-icons">edit</i>
                                 </a>
                             </td>

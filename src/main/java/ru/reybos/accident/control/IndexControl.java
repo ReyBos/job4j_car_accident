@@ -1,25 +1,24 @@
 package ru.reybos.accident.control;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.reybos.accident.model.Accident;
-import ru.reybos.accident.repository.AccidentMem;
-
-import java.util.Map;
+import ru.reybos.accident.service.AccidentService;
 
 @Controller
 public class IndexControl {
-    private final AccidentMem store;
+    private static final Logger LOG = LoggerFactory.getLogger(IndexControl.class.getName());
+    private final AccidentService service;
 
-    public IndexControl(AccidentMem store) {
-        this.store = store;
+    public IndexControl(AccidentService service) {
+        this.service = service;
     }
 
     @GetMapping("/")
     public String index(Model model) {
-        Map<Integer, Accident> accidents = store.findAllAccident();
-        model.addAttribute("accidents", accidents);
+        service.index(model);
         return "index";
     }
 }
