@@ -49,9 +49,6 @@ public class AccidentService {
 
     public void edit(int id, Model model) {
         Optional<Accident> optionalAccident = store.findById(id);
-        if (optionalAccident.isEmpty()) {
-            throw new IllegalArgumentException("Инцидент не найден");
-        }
         List<AccidentType> types = store.findAllAccidentType();
         List<Rule> rules = store.findAllRule();
         model.addAttribute("types", types);
