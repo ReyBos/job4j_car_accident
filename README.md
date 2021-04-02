@@ -26,6 +26,10 @@
         <strong><a href="https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html">link</a></strong>
         - работа с БД Spring
     </li>
+    <li>
+        <strong><a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360007103039--Solved-Unable-to-resolve-table-name">link</a></strong>
+        - когда idea не видит таблицы в коде (нужно добавить корректную базу в настройках)
+    </li>
     <!--<li>
         <strong><a href="">link</a></strong>
         - сервлеты и Ajax

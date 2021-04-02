@@ -14,10 +14,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class AccidentMem {
-    private Map<Integer, Accident> accidents = new ConcurrentHashMap<>();
-    private AtomicInteger accidentsId = new AtomicInteger(1);
-    private Map<Integer, AccidentType> types = new ConcurrentHashMap<>();
-    private Map<Integer, Rule> rules = new ConcurrentHashMap<>();
+    private final Map<Integer, Accident> accidents = new ConcurrentHashMap<>();
+    private final AtomicInteger accidentsId = new AtomicInteger(1);
+    private final Map<Integer, AccidentType> types = new ConcurrentHashMap<>();
+    private final Map<Integer, Rule> rules = new ConcurrentHashMap<>();
 
     public AccidentMem() {
         types.put(1, AccidentType.of(1, "Две машины"));

@@ -10,7 +10,7 @@ public class Accident {
     private String text;
     private String address;
     private AccidentType type;
-    private Set<Rule> rules = new HashSet<>();
+    private final Set<Rule> rules = new HashSet<>();
 
     public void addRule(Rule rule) {
         rules.add(rule);
