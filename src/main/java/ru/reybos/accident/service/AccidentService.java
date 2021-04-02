@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import ru.reybos.accident.model.Accident;
 import ru.reybos.accident.model.AccidentType;
 import ru.reybos.accident.model.Rule;
-import ru.reybos.accident.repository.AccidentMem;
+import ru.reybos.accident.repository.AccidentJdbcTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -13,9 +13,9 @@ import java.util.Optional;
 
 @Service
 public class AccidentService {
-    private final AccidentMem store;
+    private final AccidentJdbcTemplate store;
 
-    public AccidentService(AccidentMem store) {
+    public AccidentService(AccidentJdbcTemplate store) {
         this.store = store;
     }
 
@@ -40,7 +40,11 @@ public class AccidentService {
             int index = rules.indexOf(rule);
             accident.addRule(rules.get(index));
         }
-        store.save(accident);
+        if (accident.getId() != 0) {
+            store.update(accident);
+        } else {
+            store.save(accident);
+        }
     }
 
     public void edit(int id, Model model) {

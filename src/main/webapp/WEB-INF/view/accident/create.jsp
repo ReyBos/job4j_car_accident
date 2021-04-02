@@ -45,7 +45,7 @@
                                 <label class="" for="type_id">Тип</label>
                             </div>
                             <div class="input-field col s6">
-                                <select name="rIds" multiple id="rIds">
+                                <select name="rIds" multiple id="rIds" required>
                                     <c:forEach var="rule" items="${rules}" >
                                         <option value="${rule.id}">${rule.name}</option>
                                     </c:forEach>
