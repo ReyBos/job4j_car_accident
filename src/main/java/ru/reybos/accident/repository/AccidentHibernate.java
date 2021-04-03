@@ -25,17 +25,12 @@ public class AccidentHibernate {
     public Accident save(Accident accident, String[] ruleIds) {
         try (Session session = sf.openSession()) {
             session.beginTransaction();
-            session.saveOrUpdate(accident);
-            session.getTransaction().commit();
-
-            session.beginTransaction();
-            Accident accidentDb = session.get(Accident.class, accident.getId());
             for (String rId : ruleIds) {
                 Rule rule = session.get(Rule.class, Integer.parseInt(rId));
-                accidentDb.addRule(rule);
+                accident.addRule(rule);
             }
+            session.saveOrUpdate(accident);
             session.getTransaction().commit();
-
             return accident;
         }
     }
