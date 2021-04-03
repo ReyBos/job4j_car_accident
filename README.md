@@ -30,6 +30,10 @@
         <strong><a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360007103039--Solved-Unable-to-resolve-table-name">link</a></strong>
         - когда idea не видит таблицы в коде (нужно добавить корректную базу в настройках)
     </li>
+    <li>
+        <strong><a href="https://stackoverflow.com/questions/42871038/from-unexpected-when-createquery">link</a></strong>
+        - когда idea подчеркивает hibernate запросы по типу “from unexpected”
+    </li>
     <!--<li>
         <strong><a href="">link</a></strong>
         - сервлеты и Ajax

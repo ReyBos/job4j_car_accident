@@ -21,8 +21,9 @@
     <div class="col s10 offset-s1">
         <div class="card horizontal">
             <div class="card-stacked row">
-                <form class="col" action="<c:url value='/save?id=${accident.id}'/>" method="post">
+                <form class="col" action="<c:url value='/save'/>" method="post">
                     <div class="card-content">
+                        <input hidden name="id" value="${accident.id}">
                         <div class="row">
                             <div class="input-field col s6">
                                 <input id="name" type="text" name="name" class="validate" required value="${accident.name}">

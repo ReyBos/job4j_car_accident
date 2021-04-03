@@ -1,6 +1,5 @@
 package ru.reybos.accident.repository;
 
-import org.springframework.stereotype.Repository;
 import ru.reybos.accident.model.Accident;
 import ru.reybos.accident.model.AccidentType;
 import ru.reybos.accident.model.Rule;
@@ -12,7 +11,7 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Repository
+//@Repository
 public class AccidentMem {
     private final Map<Integer, Accident> accidents = new ConcurrentHashMap<>();
     private final AtomicInteger accidentsId = new AtomicInteger(1);

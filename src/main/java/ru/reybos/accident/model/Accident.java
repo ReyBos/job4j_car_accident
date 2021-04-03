@@ -1,16 +1,36 @@
 package ru.reybos.accident.model;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import javax.persistence.*;
+import java.util.*;
 
+@Entity
+@Table(name = "accident")
 public class Accident {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "text")
     private String text;
+
+    @Column(name = "address")
     private String address;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "accident_type_id")
     private AccidentType type;
-    private final Set<Rule> rules = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "accident_rule",
+            joinColumns = @JoinColumn(name = "accident_id"),
+            inverseJoinColumns = @JoinColumn(name = "rule_id")
+    )
+    private final List<Rule> rules = new ArrayList<>();
 
     public void addRule(Rule rule) {
         rules.add(rule);
@@ -60,7 +80,7 @@ public class Accident {
         this.type = type;
     }
 
-    public Set<Rule> getRules() {
+    public List<Rule> getRules() {
         return rules;
     }
 
@@ -79,5 +99,17 @@ public class Accident {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Accident{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", text='" + text + '\''
+                + ", address='" + address + '\''
+                + ", type=" + type
+                + ", rules=" + rules
+                + "}";
     }
 }

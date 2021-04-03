@@ -49,6 +49,9 @@
                                 <a href='<c:url value="/update?id=${accident.id}"/>'>
                                     <i class="material-icons">edit</i>
                                 </a>
+                                <a href='<c:url value="/delete?id=${accident.id}"/>'>
+                                    <i class="material-icons">delete</i>
+                                </a>
                             </td>
                         </tr>
                     </c:forEach>

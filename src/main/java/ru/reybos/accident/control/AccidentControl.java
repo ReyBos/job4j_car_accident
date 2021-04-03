@@ -1,5 +1,7 @@
 package ru.reybos.accident.control;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class AccidentControl {
+    private static final Logger LOG = LoggerFactory.getLogger(AccidentControl.class.getName());
     private final AccidentService service;
 
     public AccidentControl(AccidentService service) {
@@ -22,7 +25,7 @@ public class AccidentControl {
     @GetMapping("/create")
     public String create(Model model) {
         service.create(model);
-        return "accident/create";
+        return "accident/form";
     }
 
     @PostMapping("/save")
@@ -34,6 +37,12 @@ public class AccidentControl {
     @GetMapping("/update")
     public String edit(@RequestParam("id") int id, Model model) {
         service.edit(id, model);
-        return "accident/update";
+        return "accident/form";
+    }
+
+    @GetMapping("/delete")
+    public String edit(@RequestParam("id") int id) {
+        service.delete(id);
+        return "redirect:/";
     }
 }

@@ -1,9 +1,17 @@
 package ru.reybos.accident.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "accident_type")
 public class AccidentType {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "name")
     private String name;
 
     public static AccidentType of(int id, String name) {
@@ -44,5 +52,13 @@ public class AccidentType {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "AccidentType{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + "}";
     }
 }
