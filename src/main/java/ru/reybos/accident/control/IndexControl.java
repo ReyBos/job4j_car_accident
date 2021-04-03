@@ -5,7 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import ru.reybos.accident.model.Accident;
 import ru.reybos.accident.service.AccidentService;
+
+import java.util.List;
 
 @Controller
 public class IndexControl {
@@ -18,7 +21,8 @@ public class IndexControl {
 
     @GetMapping("/")
     public String index(Model model) {
-        service.index(model);
+        List<Accident> accidents = service.findAllAccident();
+        model.addAttribute("accidents", accidents);
         return "index";
     }
 }
