@@ -5,6 +5,9 @@
         <a class="brand-logo">Accident</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
+                Пользователь: ${user.username}
+            </li>
+            <li>
                 <a href='<c:url value="/" />'>Главная</a>
             </li>
             <li>
