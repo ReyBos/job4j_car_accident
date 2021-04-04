@@ -13,16 +13,7 @@
     <title>Accident</title>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper container">
-            <a class="brand-logo">Accident</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li>
-                    <a href='<c:url value="/login" />'>Войти</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <c:import url="_menu.jsp"/>
     <div class="container row">
         <div class="col s6 offset-s3">
             <h4 class="header center-align">Авторизация</h4>

@@ -42,6 +42,10 @@
         <strong><a href="https://stackoverflow.com/questions/29602386/how-does-the-fetchmode-work-in-spring-data-jpa">link</a></strong>
         - eager загрузка полей в Spring Data (плюс ссылка на доку)
     </li>
+    <li>
+        <strong><a href="https://www.baeldung.com/spring-security-taglibs">link</a></strong>
+        - Spring security теги, можно например закрыть доступ по роли/авторизации к какой-то части страницы
+    </li>
     <!--<li>
         <strong><a href="">link</a></strong>
         - сервлеты и Ajax

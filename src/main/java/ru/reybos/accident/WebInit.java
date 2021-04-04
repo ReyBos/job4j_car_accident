@@ -10,7 +10,7 @@ import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
-public class WebInit  implements WebApplicationInitializer {
+public class WebInit implements WebApplicationInitializer {
     public void onStartup(ServletContext servletCxt) {
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
         ac.register(WebConfig.class, DataConfig.class, SecurityConfig.class);
