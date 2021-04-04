@@ -14,6 +14,7 @@ public class WebInit  implements WebApplicationInitializer {
     public void onStartup(ServletContext servletCxt) {
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
         ac.register(WebConfig.class, DataConfig.class);
+        ac.register(WebConfig.class, SecurityConfig.class);
         ac.refresh();
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setEncoding("UTF-8");

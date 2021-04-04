@@ -10,6 +10,9 @@
             <li>
                 <a href='<c:url value="/create" />'>Добавить инцидент</a>
             </li>
+            <li>
+                <a href='<c:url value="/logout" />'>Выйти</a>
+            </li>
         </ul>
     </div>
 </nav>
