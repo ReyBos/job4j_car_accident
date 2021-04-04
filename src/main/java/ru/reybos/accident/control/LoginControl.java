@@ -21,10 +21,10 @@ public class LoginControl {
                             Model model) {
         String errorMessage = null;
         if (error != null) {
-            errorMessage = "Неверное имя пользователя или пароль !!";
+            errorMessage = "Неверное имя пользователя или пароль!";
         }
         if (logout != null) {
-            errorMessage = "Вы удачно вышли из системы !!";
+            errorMessage = "Вы удачно вышли из системы!";
         }
         model.addAttribute("errorMessage", errorMessage);
         return "login";
