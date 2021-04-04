@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.reybos.accident.model.Accident;
 import ru.reybos.accident.model.AccidentType;
@@ -18,17 +19,14 @@ public class AccidentHibernate {
     private static final Logger LOG = LoggerFactory.getLogger(AccidentHibernate.class.getName());
     private final SessionFactory sf;
 
+    @Autowired
     public AccidentHibernate(SessionFactory sf) {
         this.sf = sf;
     }
 
-    public Accident save(Accident accident, String[] ruleIds) {
+    public Accident save(Accident accident) {
         try (Session session = sf.openSession()) {
             session.beginTransaction();
-            for (String rId : ruleIds) {
-                Rule rule = session.get(Rule.class, Integer.parseInt(rId));
-                accident.addRule(rule);
-            }
             session.saveOrUpdate(accident);
             session.getTransaction().commit();
             return accident;

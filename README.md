@@ -34,6 +34,14 @@
         <strong><a href="https://stackoverflow.com/questions/42871038/from-unexpected-when-createquery">link</a></strong>
         - когда idea подчеркивает hibernate запросы по типу “from unexpected”
     </li>
+    <li>
+        <strong><a href="https://habr.com/ru/post/435114/">link</a></strong>
+        - кратко про Spring Data
+    </li>
+    <li>
+        <strong><a href="https://stackoverflow.com/questions/29602386/how-does-the-fetchmode-work-in-spring-data-jpa">link</a></strong>
+        - eager загрузка полей в Spring Data (плюс ссылка на доку)
+    </li>
     <!--<li>
         <strong><a href="">link</a></strong>
         - сервлеты и Ajax
