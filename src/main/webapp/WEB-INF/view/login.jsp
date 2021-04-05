@@ -20,7 +20,7 @@
             <div class="card horizontal">
                 <div class="card-stacked row">
                     <form class="col s12" action="<c:url value="/login" />" method="post">
-                        <div class="card-content">
+                        <div class="card-content" style="padding-bottom: 0">
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input placeholder="" id="username" type="text" name="username" class="validate" required>
@@ -33,9 +33,11 @@
                                     <label class="active" for="password">Пароль</label>
                                 </div>
                                 <c:if test="${not empty errorMessage}">
-                                        <span class="helper-text" data-error="wrong" data-success="right">
+                                    <div class="input-field col s12">
+                                        <span class="helper-text" data-error="wrong" data-success="right" style="font-size: 14px">
                                             ${errorMessage}
                                         </span>
+                                    </div>
                                 </c:if>
                             </div>
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

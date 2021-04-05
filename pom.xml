@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.reybos</groupId>
-    <artifactId>car_accident</artifactId>
+    <artifactId>car-accident</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 

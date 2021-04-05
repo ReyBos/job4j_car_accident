@@ -3,6 +3,7 @@ package ru.reybos.accident.control;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,6 +47,9 @@ public class AccidentControl {
         model.addAttribute("rules", rules);
         Accident accident = new Accident();
         model.addAttribute("accident", accident);
+        model.addAttribute(
+                "user", SecurityContextHolder.getContext().getAuthentication().getPrincipal()
+        );
         return "accident/form";
     }
 
@@ -64,6 +68,9 @@ public class AccidentControl {
         model.addAttribute("rules", rules);
         Optional<Accident> optionalAccident = accidentService.findById(id);
         model.addAttribute("accident", optionalAccident.get());
+        model.addAttribute(
+                "user", SecurityContextHolder.getContext().getAuthentication().getPrincipal()
+        );
         return "accident/form";
     }
 
